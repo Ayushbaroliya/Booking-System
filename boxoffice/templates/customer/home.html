@@ -9,11 +9,45 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>Welcome to BoxOffice</h1>
-        <p>Book your favorite movies now!</p>
-        <a href="{{ url_for('login') }}">Login</a> | <a href="{{ url_for('customer_booking') }}">Book Now</a>
+    <nav>
+        <h2>BoxOffice</h2>
+        <a href="{{ url_for('customer_home') }}">Movies</a>
+        <a href="{{ url_for('customer_booking') }}">Book Tickets</a>
+        <a href="{{ url_for('customer_history') }}">My Bookings</a>
+        <a href="{{ url_for('logout') }}" style="margin-top: auto; color: #ff6b6b;">Logout</a>
+    </nav>
+
+    <div class="main-content">
+        <header>
+            <h1>Welcome to BoxOffice</h1>
+            <p>Select a movie to book your tickets.</p>
+        </header>
+
+        {% if movies %}
+        <div class="movie-grid">
+            {% for movie in movies %}
+            <div class="movie-card">
+                <div class="movie-poster-placeholder">
+                    <span>{{ movie.title }} Poster</span>
+                </div>
+                <div class="movie-details">
+                    <h3>{{ movie.title }}</h3>
+                    <div class="movie-meta">
+                        <span>{{ movie.genre }}</span>
+                        <span>{{ movie.duration }} min</span>
+                    </div>
+                    <div class="movie-actions">
+                        <a href="{{ url_for('customer_booking', movie_id=movie.id) }}" class="btn-book">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>No movies available at the moment. Please check back later.</p>
+        {% endif %}
     </div>
+
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 

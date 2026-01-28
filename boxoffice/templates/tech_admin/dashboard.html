@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Admin Dashboard - BoxOffice</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <nav>
+        <h2>Tech Admin</h2>
+        <a href="{{ url_for('tech_admin_dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('change_password') }}">Change Password</a>
+        <a href="{{ url_for('logout') }}" style="margin-top: auto; color: #ff6b6b;">Logout</a>
+    </nav>
+    <div class="main-content">
+        <header>
+            <h1>System Dashboard</h1>
+        </header>
+        <p>System Status: <strong>Operational</strong></p>
+        <p>Logs: No critical errors found.</p>
+    </div>
+</body>
+
+</html>

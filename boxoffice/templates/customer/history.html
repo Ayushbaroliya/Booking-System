@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings - BoxOffice</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <nav>
+        <h2>BoxOffice</h2>
+        <a href="{{ url_for('customer_home') }}">Movies</a>
+        <a href="{{ url_for('customer_booking') }}">Book Tickets</a>
+        <a href="{{ url_for('customer_history') }}">My Bookings</a>
+        <a href="{{ url_for('logout') }}" style="margin-top: auto; color: #ff6b6b;">Logout</a>
+    </nav>
+    <div class="main-content">
+        <header>
+            <h1>My Booking History</h1>
+        </header>
+        <table>
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Movie</th>
+                    <th>Date</th>
+                    <th>Tickets</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% ifbookings %}
+                {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.id }}</td>
+                    <td>{{ booking.movie_title }}</td>
+                    <td>{{ booking.booking_date }}</td>
+                    <td>{{ booking.tickets }}</td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan="4">No bookings found.</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

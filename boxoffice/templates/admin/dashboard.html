@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - BoxOffice</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <nav>
+        <h2>Admin Panel</h2>
+        <a href="{{ url_for('admin_dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('add_movie') }}">Add Movie</a>
+        <a href="{{ url_for('view_movies') }}">View Movies</a>
+        <a href="{{ url_for('logout') }}" style="margin-top: auto; color: #ff6b6b;">Logout</a>
+    </nav>
+    <div class="main-content">
+        <header>
+            <h1>Dashboard</h1>
+        </header>
+        <p>Welcome, Admin. Select an option from the sidebar to get started.</p>
+    </div>
+</body>
+
+</html>

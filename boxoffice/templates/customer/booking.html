@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking - BoxOffice</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <nav>
+        <h2>BoxOffice</h2>
+        <a href="{{ url_for('customer_home') }}">Movies</a>
+        <a href="{{ url_for('customer_booking') }}">Book Tickets</a>
+        <a href="{{ url_for('customer_history') }}">My Bookings</a>
+        <a href="{{ url_for('logout') }}" style="margin-top: auto; color: #ff6b6b;">Logout</a>
+    </nav>
+    <div class="main-content">
+        <header>
+            <h1>Book Tickets</h1>
+        </header>
+        <div class="container" style="margin: 0; max-width: 600px;">
+            <form method="POST">
+                <label>Select Movie:</label>
+                <select name="movie_title" required>
+                    {% for movie in movies %}
+                    <option value="{{ movie.title }}">{{ movie.title }}</option>
+                    {% endfor %}
+                </select>
+                <label>Date:</label>
+                <input type="date" name="date" required>
+                <label>Number of Tickets:</label>
+                <input type="number" name="tickets" placeholder="Number of Tickets" min="1" required>
+                <button type="submit">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

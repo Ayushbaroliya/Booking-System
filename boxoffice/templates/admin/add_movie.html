@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Movie - BoxOffice</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <nav>
+        <h2>Admin Panel</h2>
+        <a href="{{ url_for('admin_dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('add_movie') }}">Add Movie</a>
+        <a href="{{ url_for('view_movies') }}">View Movies</a>
+        <a href="{{ url_for('logout') }}" style="margin-top: auto; color: #ff6b6b;">Logout</a>
+    </nav>
+    <div class="main-content">
+        <header>
+            <h1>Add New Movie</h1>
+        </header>
+        <div class="container" style="margin: 0; max-width: 600px;">
+            <form method="POST">
+                <input type="text" name="title" placeholder="Movie Title" required>
+                <input type="text" name="genre" placeholder="Genre" required>
+                <input type="number" name="duration" placeholder="Duration (min)" required>
+                <button type="submit">Add Movie</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
